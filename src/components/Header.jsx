@@ -2,29 +2,52 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowTrendUp } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import { faRss } from "@fortawesome/free-solid-svg-icons";
-export default function Header({ data, setData }) {
+
+import { useState } from "react";
+export default function Header({
+  data,
+  setData,
+  showCardList,
+  SetShowCardList,
+}) {
   return (
     <>
       <header>
-        <h1>velog</h1>
-        <button
+        <div className="buttonwrite">
+          <h1>valog</h1>
+          <button
+            onClick={() => SetShowCardList((prev) => !prev)}
+            className="writeBtn"
+          >
+            {showCardList ? "글작성" : "메인으로"}
+          </button>
+        </div>
+
+        <a
+          href="#"
           className={data === "trending" ? "go" : "no"}
           onClick={() => setData("trending")}
         >
-          <FontAwesomeIcon icon={faArrowTrendUp} /> 트렌딩
-        </button>
-        <button
+          <FontAwesomeIcon icon={faArrowTrendUp} />
+          <span>트렌딩</span>
+        </a>
+
+        <a
+          href="#"
           className={data === "latest" ? "go" : "no"}
           onClick={() => setData("latest")}
         >
-          <FontAwesomeIcon icon={faClock} /> 최신
-        </button>
-        <button
+          <FontAwesomeIcon icon={faClock} />
+          <span>최신</span>
+        </a>
+        <a
+          href="#"
           className={data === "feed" ? "go" : "no"}
           onClick={() => setData("feed")}
         >
-          <FontAwesomeIcon icon={faRss} /> 피드
-        </button>
+          <FontAwesomeIcon icon={faRss} />
+          <span>피드</span>
+        </a>
       </header>
     </>
   );

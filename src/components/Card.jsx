@@ -1,3 +1,5 @@
+import Styles from "./Card.module.css";
+
 export default function Card({
   title,
   content,
@@ -9,23 +11,27 @@ export default function Card({
   comments,
 }) {
   return (
-    <div className="card">
-      <div className="card-image">
+    <div className={Styles.cardCard}>
+      <div className={Styles.cardImage}>
         <img src={image} alt="Post image" />
       </div>
-      <div className="card-content">
+      <div className={Styles.cardContent}>
         <h4>{title}</h4>
         <p>{content}</p>
-        <div className="card-meta">
-          <span className="created-at">{createdAt}</span>
-          <span className="separator">.</span>
-          <span className="comments">{comments}</span>
+        <div className={Styles.cardMeta}>
+          <span className={Styles.createdAt}>{createdAt}</span>
+          <span className={Styles.separator}>.</span>
+          <span className={Styles.comments}>{comments}</span>
         </div>
       </div>
-      <div className="card-footer">
-        <img src={userImage} alt="Author's avatar" className="user-image" />
-        <span className="author">by {author}</span>
-        <span className="likes">{likes}</span>
+      <div className={Styles.cardFooter}>
+        <img
+          src={userImage}
+          alt="Author's avatar"
+          className={Styles.userImage}
+        />
+        <span className={Styles.author}>by {author}</span>
+        <span className={Styles.likes}>{likes}</span>
       </div>
     </div>
   );
