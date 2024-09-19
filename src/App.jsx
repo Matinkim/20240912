@@ -5,6 +5,8 @@ import Card from "./components/Card";
 import postData from "./DUMMY_DATA";
 import Main from "./components/Main";
 import Form from "./components/Form";
+import Detail from "./components/Detail";
+import Modal from "./components/Modal";
 
 postData;
 
@@ -34,6 +36,7 @@ function App() {
       ) : (
         <Form setContentsList={setContentsList} />
       )}
+      <Detail />
     </>
   );
 }
