@@ -11,6 +11,7 @@ export default function Card({
   likes,
   userImage,
   comments,
+  onClick, //삭제
 }) {
   const modalRef = useRef();
   function open() {
@@ -40,7 +41,8 @@ export default function Card({
             className={Styles.userImage}
           />
           <span className={Styles.author}>by {author}</span>
-          <span className={Styles.likes}>{likes}</span>
+          <span className={Styles.likes}>♥{likes}</span>
+          <button>삭제</button>
         </div>
       </div>
     </>

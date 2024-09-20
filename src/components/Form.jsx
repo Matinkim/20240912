@@ -61,7 +61,7 @@ export default function Form({ setContentsList }) {
           className={styles.textEditor}
         />
       </div>
-      <button type="submit">전송</button>
+
       <button type="button" onClick={() => setCategory("trending")}>
         트렌딩
       </button>
@@ -71,6 +71,7 @@ export default function Form({ setContentsList }) {
       <button type="button" onClick={() => setCategory("feed")}>
         피드
       </button>
+      <button type="submit">전송</button>
     </form>
   );
 }
