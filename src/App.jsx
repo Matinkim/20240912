@@ -10,8 +10,12 @@ import Detail from "./components/Detail";
 function App() {
   const [data, setData] = useState("trending");
   const [showCardList, SetShowCardList] = useState(true);
-  const [contentsList, setContentsList] =
-    useState("더미데이터 안에 요소가 뭘까");
+  const [contentsList, setContentsList] = useState({
+    trending: [],
+    latest: [],
+    feed: [],
+  });
+
   const [showModal, setShowModal] = useState(false); // 모달
   const detailRef = useRef();
 
@@ -20,7 +24,7 @@ function App() {
     //데이터가 존재하지 않는다면
     if (!data) {
       //더미데이터를 임시로 넣어주기
-      localStorage.setItem("key", JSON.stringify(dummydata));
+      localStorage.setItem("key", JSON.stringify(postData));
       //로컬스토리지에서 데이터 가져오기
       data = JSON.parse(localStorage.getItem("key"));
       // setState({trending:[], feed:[],latest:[]})
