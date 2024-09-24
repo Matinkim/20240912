@@ -4,7 +4,6 @@ function onSubmit() {
     const newData = {
       id: Date.now(),
       title: "dafdf",
-
       content: "dsafsdaf",
       author: "사용자",
       crateAt: "2024-08-01",
