@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import styles from "./Form.module.css";
 
-export default function Form({ setContentsList }) {
+export default function Form({ handleFormSubmit, setContentsList }) {
   const titleRef = useRef();
   const tagRef = useRef();
   const textEditorRef = useRef();
@@ -17,6 +17,13 @@ export default function Form({ setContentsList }) {
     console.log("Title:", titleValue);
     console.log("Tag:", tagValue);
     console.log("Text Editor Content:", textEditorValue);
+    // 추가
+    handleFormSubmit({
+      title: titleValue,
+      tag: tagValue,
+      content: textEditorValue,
+      category: category,
+    });
 
     setContentsList((prev) => {
       const newData = {
@@ -61,7 +68,7 @@ export default function Form({ setContentsList }) {
           className={styles.textEditor}
         />
       </div>
-      <button type="submit">전송</button>
+
       <button type="button" onClick={() => setCategory("trending")}>
         트렌딩
       </button>
@@ -71,6 +78,7 @@ export default function Form({ setContentsList }) {
       <button type="button" onClick={() => setCategory("feed")}>
         피드
       </button>
+      <button type="submit">전송</button>
     </form>
   );
 }

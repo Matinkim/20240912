@@ -22,29 +22,25 @@ function App() {
 
   useEffect(() => {
     let data = JSON.parse(localStorage.getItem("key"));
+    //데이터가 존재하지 않는다면
     if (!data) {
-      // 더미데이터를 임시로 넣어주기
+      //더미데이터를 임시로 넣어주기
       localStorage.setItem("key", JSON.stringify(postData));
+      //로컬스토리지에서 데이터 가져오기
       data = JSON.parse(localStorage.getItem("key"));
+      // setState({trending:[], feed:[],latest:[]})
     }
+    //가져온 데이터를 set에 저장
     setContentsList(data);
   }, []);
 
+  // 교수님 가르쳐주신거
   const list = contentsList[data];
 
   const handleFormSubmit = () => {
     setShowModal(true);
     detailRef.current.openModal();
     detailRef.current.closeModal();
-  };
-
-  const handleDelete = (id) => {
-    setContentsList((prev) => {
-      const updatedData = { ...prev };
-      updatedData[data] = updatedData[data].filter((item) => item.id !== id);
-      localStorage.setItem("key", JSON.stringify(updatedData)); // 로컬 스토리지 업데이트
-      return updatedData;
-    });
   };
 
   return (
@@ -59,7 +55,7 @@ function App() {
       {showCardList ? (
         <Main>
           {list.map((cardData) => (
-            <Card key={cardData.id} {...cardData} onDelete={handleDelete} />
+            <Card key={cardData.id} {...cardData} />
           ))}
         </Main>
       ) : (

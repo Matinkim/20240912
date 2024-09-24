@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Card from "./components/Card";
-import postData from "./DUMMY_DATA";
+// import postData from "./DUMMY_DATA";
 import Main from "./components/Main";
 import Form from "./components/Form";
 import Detail from "./components/Detail";

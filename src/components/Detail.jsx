@@ -10,6 +10,14 @@ const detail = forwardRef(function Detail({ title, content, image }, ref) {
       openModal: () => {
         dialogChild.current.showModal();
       },
+      time: () => {
+        console.log("환씨타임");
+      },
+      closeModal: () => {
+        setTimeout(() => {
+          dialogChild.current.close();
+        }, 2000);
+      },
     };
   });
   function off() {
@@ -20,7 +28,9 @@ const detail = forwardRef(function Detail({ title, content, image }, ref) {
     <dialog onClick={off} ref={dialogChild}>
       <h4>{title}</h4>
       <p>{content}</p>
-      <img src={image} alt="Post image" />
+      <img src={image} alt="" />
+      <br />
+      <button>삭제</button>
     </dialog>
   );
 });
